@@ -438,7 +438,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 44
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -464,13 +464,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14780942, y: 0, z: 0, w: 0.9890159}
-  m_LocalPosition: {x: 0, y: 2, z: -3.35}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: 1.454, z: -2.179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 17, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,7 +535,6 @@ GameObject:
   - component: {fileID: 332798144}
   - component: {fileID: 332798147}
   - component: {fileID: 332798146}
-  - component: {fileID: 332798148}
   m_Layer: 0
   m_Name: Player_Racket
   m_TagString: Untagged
@@ -601,8 +600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RacketController
   moveSmoothness: 15
-  xBounds: {x: -2.5, y: 2.5}
-  yBounds: {x: 0.25, y: 2.2}
+  xBounds: {x: -0.8, y: 1}
+  yBounds: {x: -0.5, y: 1.6}
   fixedZPosition: -1.5
 --- !u!54 &332798140
 Rigidbody:
@@ -646,9 +645,7 @@ MonoBehaviour:
   moveAction: {fileID: 864961173185092122, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   mainCamera: {fileID: 330585545}
   distanceFromCamera: 1
-  viewportXOffset: 0.03
-  viewportYOffsetBottom: 0.05
-  viewportYOffsetTop: 0.03
+  offsetMultiplier: 0.004
 --- !u!114 &332798142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,49 +763,49 @@ MonoBehaviour:
     RacketVelocityMultiplier: 1
     SideMultiplier: 0
     SpinMultiplier: 0.2
-    VisualTiltEuler: {x: 10, y: 0, z: 0}
+    VisualTiltEuler: {x: 5, y: 0, z: 0}
   - ShotType: 1
     ForwardMultiplier: 1.45
     LiftMultiplier: 0.55
     RacketVelocityMultiplier: 1.25
     SideMultiplier: 0
     SpinMultiplier: 0.4
-    VisualTiltEuler: {x: 28, y: 0, z: 0}
+    VisualTiltEuler: {x: 18, y: 0, z: 0}
   - ShotType: 2
     ForwardMultiplier: 0.75
     LiftMultiplier: 1.85
     RacketVelocityMultiplier: 0.75
     SideMultiplier: 0
     SpinMultiplier: 0.1
-    VisualTiltEuler: {x: -32, y: 0, z: 0}
+    VisualTiltEuler: {x: -20, y: 0, z: 0}
   - ShotType: 3
     ForwardMultiplier: 0.85
     LiftMultiplier: 0.65
     RacketVelocityMultiplier: 0.7
     SideMultiplier: 0
     SpinMultiplier: 1.6
-    VisualTiltEuler: {x: -22, y: 0, z: 0}
+    VisualTiltEuler: {x: -10, y: 0, z: 0}
   - ShotType: 4
     ForwardMultiplier: 0.95
     LiftMultiplier: 0.85
     RacketVelocityMultiplier: 0.9
     SideMultiplier: -1
     SpinMultiplier: 1.2
-    VisualTiltEuler: {x: 8, y: -30, z: 24}
+    VisualTiltEuler: {x: 5, y: -18, z: 14}
   - ShotType: 5
     ForwardMultiplier: 0.95
     LiftMultiplier: 0.85
     RacketVelocityMultiplier: 0.9
     SideMultiplier: 1
     SpinMultiplier: 1.2
-    VisualTiltEuler: {x: 8, y: 30, z: -24}
+    VisualTiltEuler: {x: 5, y: 18, z: -14}
   - ShotType: 6
     ForwardMultiplier: 0.65
     LiftMultiplier: 1.1
     RacketVelocityMultiplier: 0.35
     SideMultiplier: 0
     SpinMultiplier: 0
-    VisualTiltEuler: {x: -10, y: 0, z: 0}
+    VisualTiltEuler: {x: -4, y: 0, z: 0}
 --- !u!114 &332798147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,55 +818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 840d0c9f2f0d8c4479d7fb909b4b712a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RacketShotSelector
-  powerShotAction: {fileID: 3814671921016545121, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  lobShotAction: {fileID: -2221770324928008465, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  sliceShotAction: {fileID: -1712602882403378215, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  flickLeftAction: {fileID: 5648921046093936996, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  flickRightAction: {fileID: -8213863351777601211, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  blockShotAction: {fileID: 3481897575846006527, guid: 052faaac586de48259a63d0c4782560b, type: 3}
---- !u!114 &332798148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332798135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7da449452a1ec4694f5e29c0684775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RacketTiltController
-  racketVisual: {fileID: 385935415}
-  velocityForMaxTilt: 7
-  maxAutoRoll: 18
-  maxAutoPitch: 12
-  previewShotTiltWeight: 0.55
-  strikeTiltHoldTime: 0.24
-  strikeTiltCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  tiltSmoothness: 16
+  powerShotAction: {fileID: 0}
+  lobShotAction: {fileID: 0}
+  sliceShotAction: {fileID: 0}
+  flickLeftAction: {fileID: 0}
+  flickRightAction: {fileID: 0}
+  blockShotAction: {fileID: 0}
 --- !u!1001 &385935414
 PrefabInstance:
   m_ObjectHideFlags: 0
