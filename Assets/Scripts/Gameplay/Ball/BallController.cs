@@ -32,6 +32,8 @@ public class BallController : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = true;
 
+    private Transform currentHoldPoint;
+
     public BallState CurrentState { get; private set; }
 
     private Rigidbody rb;
@@ -60,6 +62,8 @@ public class BallController : MonoBehaviour
     {
         CurrentState = BallState.AttachedToRacket;
 
+        currentHoldPoint = holdPoint;
+
         rb.isKinematic = false;
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -69,6 +73,9 @@ public class BallController : MonoBehaviour
 
         followTarget.enabled = true;
         followTarget.SetFollowTarget(holdPoint);
+        followTarget.SnapToTarget();
+
+        transform.position = holdPoint.position;
 
         DebugLog("[BallController] Ball attached to racket.");
     }
@@ -101,6 +108,11 @@ public class BallController : MonoBehaviour
     private void ShootBall(RacketHitData hitData)
     {
         CurrentState = BallState.InPlay;
+
+        if (hitData.HitType == RacketHitType.Serve && currentHoldPoint != null)
+        {
+            transform.position = currentHoldPoint.position;
+        }
 
         followTarget.enabled = false;
 
@@ -203,6 +215,8 @@ public class BallController : MonoBehaviour
         newVelocity = Vector3.ClampMagnitude(newVelocity, maxBounceSpeed);
 
         rb.linearVelocity = newVelocity;
+
+        GameEvents.RaiseBallHitTable(contact.point);
 
         DebugLog(
             "[BallController] Table bounce." +
