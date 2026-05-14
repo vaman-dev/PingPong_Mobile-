@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5951671545679862651}
   - component: {fileID: 2225121204526475724}
   - component: {fileID: 6331534663309819705}
+  - component: {fileID: -3510179265520273966}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -157,6 +158,8 @@ MonoBehaviour:
   baseForwardPower: 5
   racketVelocityMultiplier: 0.45
   upwardPowerMultiplier: 0.8
+  sideShotPower: 4
+  spinAngularVelocityMultiplier: 6
   maxBallSpeed: 10
   tableBounceMultiplier: 0.82
   minimumBounceY: 2.2
@@ -178,5 +181,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallFollowRacket
   followTarget: {fileID: 0}
-  smoothFollow: 1
+  smoothFollow: 0
   followSmoothness: 20
+--- !u!114 &-3510179265520273966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800513365600134376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8be55a136b905e4d83c68887dd67190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BallDecalProjector
+  decalPrefab:
+  - {fileID: 1952834554510318606, guid: 9f4cf1bd9a02ee5438fb72e3956a2cbe, type: 3}
+  - {fileID: 1952834554510318606, guid: 504accb97b3f040469b30b15d2d9493c, type: 3}
+  - {fileID: 1952834554510318606, guid: 325cef37c0cd4694e843f2fd64c9f0e9, type: 3}
+  tableLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  surfaceOffset: 0.01
+  projectAlongNegativeNormal: 1
+  decalSize: {x: 0.35, y: 0.35, z: 0.08}
+  overrideDecalSize: 1
+  decalLifetime: 1.5
+  maxActiveDecals: 8
+  showDebugLogs: 1
